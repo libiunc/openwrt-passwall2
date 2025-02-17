@@ -83,7 +83,7 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_Hysteria
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_NaiveProxy
 	bool "Include NaiveProxy"
-	depends on !(arc||(arm&&TARGET_gemini)||armeb||mips||mips64||powerpc)
+	depends on !(arc||(arm&&TARGET_gemini)||armeb||mips||mips64||powerpc||riscv64)
 	select PACKAGE_naiveproxy
 	default n
 
@@ -100,13 +100,13 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks_Libev_Server
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks_Rust_Client
 	bool "Include Shadowsocks Rust Client"
-	depends on aarch64||arm||i386||mips||mipsel||x86_64
+	depends on aarch64||arm||i386||mips||mipsel||x86_64||riscv64
 	select PACKAGE_shadowsocks-rust-sslocal
 	default y if aarch64
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks_Rust_Server
 	bool "Include Shadowsocks Rust Server"
-	depends on aarch64||arm||i386||mips||mipsel||x86_64
+	depends on aarch64||arm||i386||mips||mipsel||x86_64||riscv64
 	select PACKAGE_shadowsocks-rust-ssserver
 	default n
 
@@ -129,7 +129,7 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_Simple_Obfs
 config PACKAGE_$(PKG_NAME)_INCLUDE_SingBox
 	bool "Include Sing-Box"
 	select PACKAGE_sing-box
-	default y if aarch64||arm||i386||x86_64
+	default y if aarch64||arm||i386||x86_64||riscv64
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_tuic_client
 	bool "Include tuic-client"
@@ -140,7 +140,7 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_tuic_client
 config PACKAGE_$(PKG_NAME)_INCLUDE_V2ray_Plugin
 	bool "Include V2ray-Plugin (Shadowsocks Plugin)"
 	select PACKAGE_v2ray-plugin
-	default y if aarch64||arm||i386||x86_64
+	default y if aarch64||arm||i386||x86_64||riscv64
 
 endif
 endmenu
